@@ -6,40 +6,33 @@
         <div class="contenidoAdmin">
             <div class="options">
                 <ul>
+                    
 
 
+                    {% for product in productos %}
+                    <li class="ropa prendas ">
 
-                    {% comment %} {% for product in products %}
-                    <li class="ropa prendas {% if product.is_male %} hombre {% endif %}{% if product.is_female %} mujer {% endif %}{% if product.is_child %} niño {% endif %} {{product.category}}">
-
-                        <a href="{% url 'adminProduct' product.id%}">
-                            {% if product.image %}
-                                <img src="{{ product.image.url }}" >
-                            {% endif %}
-                            <h3>{{product.title}}</h3>
+                        <a href="">
+                            <h3>{{product.nombre}}</h3>
                         </a>
-                        <p>${{product.price}}</p>
-                        {% if  product.exist %}
-                            <p class="existencia">Existencia</p>
-                        {% else %}
-                            <p class="existencia">No Existencia</p>
-                        {% endif %}
-
+                        <p>{{product.categoria}}</p>
+                        <p>${{product.precio}}</p>
+                        
                         <div class="opciones">
                             <a href="{% url 'add' product.id %}">agregar</a>
                             <a href="">ver mas</a>
                         </div>
 
-
-
+                        
+                        
                     </li>
-                    {% endfor %} {% endcomment %}
-
+                    {% endfor %}
+                    
                 </ul>
             </div>
         </div>
         <div>
-            {% comment %} {% include "carrito.html" %} {% endcomment %}
+            {% include "carrito.html" %} 
         </div>
     </main>
     {% endblock content %}

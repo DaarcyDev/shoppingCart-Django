@@ -17,8 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from carritoApp.views import tienda
+from carritoApp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', tienda, name="tienda")
+    path('', tienda, name="tienda"),
+     path("agregar/<int:producto_id>/", views.agregar_producto, name="add"),
+    path("elimnar/<int:producto_id>/", views.eliminar, name="elimnar"),
+    path("restar/<int:producto_id>/", views.restar, name="restar"),
+    path("limpiar/", views.limpiar, name="limpiar"),
 ]
